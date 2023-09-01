@@ -7,12 +7,10 @@ module.exports = (sequelize, Sequelize) => {
         },
         // DEFINE YOUR MODEL HERE
         names: {
-            type: Sequelize.STRING,
-            null: false
+            type: Sequelize.STRING
         },
         number: {
-            type: Sequelize.INTEGER,
-            null: false
+            type: Sequelize.INTEGER
         },
         contactId: {
             type: Sequelize.INTEGER,
