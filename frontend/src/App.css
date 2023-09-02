@@ -21,10 +21,11 @@
 
 }
 
+
 .blue-button{
     background-color: aqua;
-    color: azure;
+    color: black;
     border: black;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
 }
