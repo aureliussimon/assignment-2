@@ -5,6 +5,21 @@ const Op = db.Sequelize.Op;
 
 // Create phone
 exports.create = (req, res) => {
+    const{ names, number } = req.body;
+
+    Contacts.create({
+        names: names,
+        number: number
+    })
+    .then(contact => {
+        res.json(contact);
+    })
+    .catch(err => {
+        res.json({
+            message: "Error when creating a new contact.",
+            error: err.message
+        });
+    });
     
 };
 
