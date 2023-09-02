@@ -49,10 +49,31 @@ exports.findOne = (req, res) => {
 
 // Update one contact by id
 exports.update = (req, res) => {
+
     
 };
 
 // Delete one contact by id
 exports.delete = (req, res) => {
-    
+    const contactId = req.params.contactId;
+
+    Contacts.destroy({
+        where: {contactId: contactId}
+    })
+    .then(num => {
+        if (num == 1){
+            res.send({
+                message: "Contact was deleted successfully!"
+            });
+        }else{
+            res.send({
+                message: 'Cannot delete contact.'
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Could not delete contact with id=" + contactId
+        });
+    });
 };
