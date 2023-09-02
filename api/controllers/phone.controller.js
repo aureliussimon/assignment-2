@@ -68,7 +68,33 @@ exports.findOne = (req, res) => {
 
 // Update one phone by id
 exports.update = (req, res) => {
-    
+    const phoneId = req.params.phoneId;
+    const { number } = req.body;
+
+    Phones.update(
+        {
+            number: number
+        },
+        {
+            where: { id: phoneId },
+            returning: true
+        }
+    )
+
+        .then(([rowUpdated, [updatedPhone]]) => {
+            if (rowUpdated == 0) {
+                return res.status(404).json({message: "Phone number not found"});
+            }
+
+            res.status(200).json(updatedPhone);
+        })
+    .catch((err) => {
+        
+        res.status(500).json({
+            message: "Error when updating phone number.",
+            error: err.message
+        });
+    });
 };
 
 // Delete one phone by id
