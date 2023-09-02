@@ -10,6 +10,11 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         }
     });
+
+    Contact.hasMany(sequelize.models.Phone, {
+        foreignKey: 'contactId', 
+        as: 'phones' 
+    });
   
     return Contact;
 };

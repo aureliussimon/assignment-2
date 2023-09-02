@@ -18,6 +18,11 @@ module.exports = (sequelize, Sequelize) => {
         },
 
     });
+
+    Phone.belongsTo(sequelize.models.Contact, {
+        foreignKey: 'contactId',
+        as: 'contact', 
+    });
   
     return Phone;
 };
