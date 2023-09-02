@@ -28,7 +28,7 @@ function App() {
         <div>     
             <h1 class="centred-heading">Contactor</h1>
             <p class="centred-heading">Click a contact to view associated phone numbers</p>
-            <List heaading="Contact" contacts={contacts} setContacts={setContacts}/>
+            <List heading="Contact" contacts={contacts} setContacts={setContacts}/>
         </div>
     );
 }
