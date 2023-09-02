@@ -10,6 +10,8 @@ exports.create = (req, res) => {
 
 // Get all phones
 exports.findAll = (req, res) => {
+    const contactId = req.params.contactId;
+
     Phones.findAll({
         where: {
             contactId: contactId
