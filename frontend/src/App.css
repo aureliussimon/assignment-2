@@ -20,3 +20,11 @@
     text-align: center;
 
 }
+
+.blue-button{
+    background-color: aqua;
+    color: azure;
+    border: black;
+    padding: 10px 20px;
+    cursor: pointer;
+}
