@@ -3,4 +3,6 @@ html, body, .page {
     height: 100vh;
     margin: 0;
     background-color: gray;
+    justify-content: center;
+    align-items: center;
 }
