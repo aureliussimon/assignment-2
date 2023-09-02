@@ -49,8 +49,28 @@ exports.findOne = (req, res) => {
 
 // Update one contact by id
 exports.update = (req, res) => {
+    const contactId = req.params.contactId;
+    const { names } = req.body
 
-    
+    Contacts.update(
+        {names: names},
+        {
+            where: {id: contactId},
+            returning: true
+        }
+    )
+    .then(([rowsUpdated, [updatedContact]]) => {
+        if (rowsUpdated == 0) {
+            return res.status(400).json({ message: "Contact does not exist." });
+        }
+        res.status(200).json(updatedContact);
+    })    
+    .catch(err => {
+        res.status(500).json({
+            message: "Unable to update contact.",
+            error: err.message
+        });
+    });
 };
 
 // Delete one contact by id
