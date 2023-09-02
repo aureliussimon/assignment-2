@@ -73,5 +73,24 @@ exports.update = (req, res) => {
 
 // Delete one phone by id
 exports.delete = (req, res) => {
-    
+    const phoneId = req.params.phoneId;
+
+    Phones.destroy({
+        where: { id: phoneId}
+    })
+
+        .then((rowDeleted) => {
+            if (rowDeleted == 0) {
+                return res.status(404).json({ message: "Number not found."});
+            }
+
+            res.status(200).json({});
+        })
+        .catch((err) => {
+            res.status(500).json({
+                message: "Error detecting phone number.",
+                error: err.message
+            });
+            
+        });
 };
