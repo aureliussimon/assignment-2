@@ -28,6 +28,22 @@ exports.findAll = (req, res) => {
 
 // Get one contact by id
 exports.findOne = (req, res) => {
+    const contactId = req.params.contactId;
+
+    Contacts.findByPk(contactId)
+    .then(contact => {
+        if (!contact) {
+            return res.json({ message: "Contact not found."});
+        }
+
+        res.json(contact);
+    })
+    .catch(err => {
+        res.json({
+            message: "Error retrieving contact by ID.",
+            error: err.message
+        });
+    });
   
 };
 
