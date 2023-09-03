@@ -1,3 +1,5 @@
+const { contacts } = require(".");
+
 module.exports = (sequelize, Sequelize) => {
     const Phone = sequelize.define("phone", {
         id: {
@@ -6,7 +8,7 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true
         },
         // DEFINE YOUR MODEL HERE
-        names: {
+        name: {
             type: Sequelize.STRING
         },
         number: {
@@ -14,8 +16,11 @@ module.exports = (sequelize, Sequelize) => {
         },
         contactId: {
             type: Sequelize.INTEGER,
-            foreignKey: true
-        },
+            references:{
+                model: 'Contact',
+                key: 'id'
+            }
+        }
 
     });
 
