@@ -1,4 +1,4 @@
-const { phones } = require("./phone.model");
+const phones  = require("./phone.model");
 
 module.exports = (sequelize, Sequelize) => {
     const Contact = sequelize.define("contact", {
@@ -8,15 +8,19 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true
         },
         // DEFINE YOUR MODEL HERE
-        names: {
+        name: {
             type: Sequelize.STRING
         }
     });
 
-    Contact.hasMany(Sequelize.models.Phones, {
+    Contact.hasMany(phones, { as: 'phones'});
+    phones.belongsTo(Contact,{
         foreignKey: 'contactId', 
         as: 'contact' 
+
     });
+        
+    
   
     return Contact;
 };
