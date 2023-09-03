@@ -1,4 +1,4 @@
-const {Phone}  = require("./phone.model.js");
+const { Phone }  = require("./phone.model");
 
 module.exports = (sequelize, Sequelize) => {
     const Contact = sequelize.define("contact", {
@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
     });
 
     Contact.hasMany(Phone, { as: 'phones'});
-    Phone.belongsTo(Contact,{
+    Phone.belongsTo(Contact, {
         foreignKey: 'contactId', 
         as: 'contact' 
 
