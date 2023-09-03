@@ -18,16 +18,12 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             references:{
                 model: contacts,
-                key: id
+                key: 'id'
             }
         }
 
     });
 
-    Phone.belongsTo(Sequelize.model.Contact, {
-        foreignKey: 'contactId',
-        as: 'contact', 
-    });
   
     return Phone;
 };
