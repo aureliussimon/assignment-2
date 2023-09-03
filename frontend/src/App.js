@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';  // import useEffect
 import './App.css';
 
+
 function App() {
     const [contacts, setContacts] = useState ([]);
     const [contactName, setContactName] = useState('');
 
     const addContact = () => {
-        fetch('http://localhost/api/contacts/', {
+        fetch('http://localhost/api/controllers/contact.controller.js/contacts/', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ function App() {
             
             <div class="square">
                 <h1 class="centred-heading">Contact</h1>
-                <input type="text" placeholder='Enter Contact name here' value={contactName} onChange={(a) => setContactName(a.target.value)}></input><br></br>
+                <input type="text" placeholder='Enter Contact name here' value={contactName} onChange={(e) => setContactName(e.target.value)}></input><br></br>
                 <br></br><button class="blue-button" onClick={addContact}>Create Contact</button>
             </div>
 
