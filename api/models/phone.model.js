@@ -24,7 +24,7 @@ module.exports = (sequelize, Sequelize) => {
 
     });
 
-    Phone.belongsTo(contacts, {
+    Phone.belongsTo(Sequelize.model.Contact, {
         foreignKey: 'contactId',
         as: 'contact', 
     });
