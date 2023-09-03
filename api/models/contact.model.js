@@ -1,3 +1,5 @@
+const { phones } = require("./phone.model");
+
 module.exports = (sequelize, Sequelize) => {
     const Contact = sequelize.define("contact", {
         id: {
@@ -11,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
-    Contact.hasMany(Sequelize.models.Phone, {
+    Contact.hasMany(phones, {
         foreignKey: 'contactId', 
         as: 'contact' 
     });
