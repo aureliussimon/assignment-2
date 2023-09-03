@@ -11,10 +11,10 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
-    // Contact.hasMany(Sequelize.models.Phone, {
-    //     foreignKey: 'contactId', 
-    //     as: 'contact' 
-    // });
+    Contact.hasMany(Sequelize.models.Phone, {
+        foreignKey: 'contactId', 
+        as: 'contact' 
+    });
   
     return Contact;
 };
