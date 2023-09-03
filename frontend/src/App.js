@@ -7,7 +7,7 @@ function App() {
     const [contactName, setContactName] = useState('');
 
     const addContact = () => {
-        fetch('http://localhost/api/controllers/contact.controller.js/contacts/', {
+        fetch('http://localhost/api/controllers/contact.controller.js/contacts', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
