@@ -1,7 +1,7 @@
-const { contacts } = require("./contact.model");
+const { Contact } = require("./contact.model");
 
 module.exports = (sequelize, Sequelize) => {
-    const Phone = sequelize.define("phone", {
+    const Phone = sequelize.define("Phone", {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -17,8 +17,8 @@ module.exports = (sequelize, Sequelize) => {
         contactId: {
             type: Sequelize.INTEGER,
             references:{
-                model: contacts,
-                key: 'id'
+                model: Contact,
+                key: 'id',
             }
         }
 
