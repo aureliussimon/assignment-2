@@ -1,4 +1,4 @@
-const phones  = require("./phone.model");
+const {phones}  = require("./phone.model.js");
 
 module.exports = (sequelize, Sequelize) => {
     const Contact = sequelize.define("contact", {
